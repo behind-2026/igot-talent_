@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>이경인 got talent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d1b2e;
+    --ink-2:#132742;
+    --paper:#f3ece0;
+    --gold:#d8b45c;
+    --red:#b8413c;
+    --green:#3f7d6e;
+    --clay:#c9743f;
+    --muted:rgba(243,236,224,.62);
+    --line:rgba(216,180,92,.3);
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *,*::before,*::after{box-sizing:inherit}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--ink);
+    background-image:radial-gradient(circle at 50% -6%, #1d3557 0%, var(--ink) 58%);
+    color:var(--paper);
+    font-family:"Noto Sans KR",system-ui,-apple-system,sans-serif;
+    font-size:16px;line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:0 22px 72px}
+
+  .lang{display:flex;justify-content:flex-end;padding:18px 0 0}
+  .lang button{
+    font:inherit;font-size:13px;background:none;border:1px solid var(--line);
+    color:var(--muted);padding:5px 13px;cursor:pointer;border-radius:999px;
+  }
+  .lang button+button{margin-left:6px}
+  .lang button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:700}
+  .lang button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+  header{text-align:center;padding:30px 0 6px}
+  .spot{
+    width:78px;height:78px;margin:0 auto 24px;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%, #fffaf0, #f0dfae 56%, #d8b45c);
+    box-shadow:0 0 46px rgba(216,180,92,.36);
+  }
+  .kicker{font-size:13px;letter-spacing:.12em;color:var(--gold);margin:0 0 14px}
+  h1{
+    font-family:"Gowun Batang",serif;font-weight:700;
+    font-size:clamp(34px,10vw,52px);line-height:1.2;margin:0;text-wrap:balance;
+  }
+  .sub{font-size:15px;color:var(--muted);margin:16px 0 0}
+  .callout{
+    font-family:"Gowun Batang",serif;font-size:17px;line-height:1.7;
+    margin:26px 0 0;color:var(--paper);
+  }
+  .note{font-size:14px;color:var(--muted);margin:10px 0 0}
+  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:34px 0}
+
+  .facts{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .fact{background:var(--ink-2);padding:15px 18px;display:flex;gap:16px;align-items:baseline}
+  .fact dt{flex:0 0 62px;font-size:13px;color:var(--gold);margin:0;font-weight:500}
+  .fact dd{margin:0;font-size:15px}
+  .welcome{background:var(--ink-2);border:1px solid var(--line);border-top:0;padding:14px 18px;font-size:14.5px;color:rgba(243,236,224,.84);margin:0}
+
+  h2{font-family:"Gowun Batang",serif;font-size:23px;font-weight:700;margin:0 0 6px}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px}
+
+  .flow{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  .flow li{display:flex;gap:14px;align-items:baseline;font-size:15px}
+  .flow b{flex:0 0 58px;color:var(--gold);font-weight:500;font-size:13.5px}
+
+  .games{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+  .game{border-left:3px solid var(--red);background:var(--ink-2)}
+  .game:nth-child(2){border-color:var(--gold)}
+  .game:nth-child(3){border-color:var(--clay)}
+  .game:nth-child(4){border-color:var(--green);background:linear-gradient(90deg,rgba(63,125,110,.22),var(--ink-2) 60%)}
+  .game summary{
+    cursor:pointer;list-style:none;padding:14px 16px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .game summary::-webkit-details-marker{display:none}
+  .game summary:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+  .game h3{font-family:"Gowun Batang",serif;font-size:18px;margin:0;font-weight:700}
+    .badge{
+    display:inline-block;vertical-align:middle;margin-left:8px;
+    font-family:"Noto Sans KR",sans-serif;font-size:11.5px;font-weight:500;line-height:1.7;
+    color:var(--ink);background:var(--green);border-radius:999px;padding:1px 9px;
+  }
+  .tbd{color:var(--muted);font-size:13.5px}
+  .org{font-family:"Gowun Batang",serif;font-size:15px;color:var(--paper);letter-spacing:.02em}
+  .behind{color:var(--gold)}
+  .game p{margin:0;padding:0 16px 16px;font-size:14.5px;color:rgba(243,236,224,.84)}
+  .game[open] summary h3{color:var(--gold)}
+
+  footer{text-align:center;margin-top:42px;font-size:13.5px;color:var(--muted)}
+
+  body:not(.en) .en-only{display:none}
+  body.en .ko-only{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="lang">
+    <button type="button" id="btn-ko" aria-pressed="true">한국어</button>
+    <button type="button" id="btn-en" aria-pressed="false">English</button>
+  </nav>
+
+  <header>
+    <div class="spot" aria-hidden="true"></div>
+    <p class="kicker"><span class="ko-only">제1회 유학생 교류 프로그램</span><span class="en-only">1st International Student Night</span></p>
+    <h1>이경인<br>got talent</h1>
+    <p class="sub"><span class="ko-only">미니 프롬 × 한국 전통 잔치</span><span class="en-only">A mini prom with a Korean twist</span></p>
+    <p class="callout"><span class="ko-only">한국의 다양한 게임을 풀어나가는<br>여러분의 talent를 보여주세요!</span><span class="en-only">Show us your talent for<br>Korean party games!</span></p>
+    </header>
+
+  <div class="rule"></div>
+
+  <dl class="facts">
+    <div class="fact"><dt><span class="ko-only">일시</span><span class="en-only">When</span></dt>
+      <dd><span class="ko-only">11월 4일 (수) <span class="tbd">시간 추후 공지</span></span><span class="en-only">Wed, November 4 <span class="tbd">· time to be announced</span></span></dd></div>
+    <div class="fact"><dt><span class="ko-only">장소</span><span class="en-only">Where</span></dt>
+      <dd><span class="ko-only">60주년 기념홀</span><span class="en-only">60th Anniversary Memorial Hall</span></dd></div>
+    <div class="fact"><dt><span class="ko-only">대상</span><span class="en-only">Who</span></dt>
+      <dd><span class="ko-only">이화여자대학교 경영대학 유학생 및 재학생</span><span class="en-only">Ewha Womans University, College of Business Administration students</span></dd></div>
+  </dl>
+  <p class="welcome"><span class="ko-only">간단한 웰컴티와 웰컴 다과가 제공될 예정입니다.</span><span class="en-only">A welcome drink and a sweet will be served.</span></p>
+
+  <div class="rule"></div>
+
+  <section>
+    <h2><span class="ko-only">식순</span><span class="en-only">Programme</span></h2>
+    <ul class="flow">
+      <li><b><span class="ko-only">입장</span><span class="en-only">Arrival</span></b><span><span class="ko-only">번호표를 받고 웰컴 드링크와 함께 시작합니다.</span><span class="en-only">Pick up your number and grab a welcome drink.</span></span></li>
+      <li><b><span class="ko-only">1부</span><span class="en-only">Part 1</span></b><span><span class="ko-only">세 가지 팀 게임과 한 가지 개인전을 진행합니다.</span><span class="en-only">Three team games and one solo game.</span></span></li>
+      <li><b><span class="ko-only">2부</span><span class="en-only">Part 2</span></b><span><span class="ko-only">맛있는 음식을 먹으며 자유롭게 대화를 나눕니다. 대화 주제 쪽지 뽑기함도 준비됩니다.</span><span class="en-only">Share good food and easy conversation, with a jar of talking points to draw from.</span></span></li>
+      <li><b><span class="ko-only">마무리</span><span class="en-only">Finale</span></b><span><span class="ko-only">게임 시상과 행운번호 추첨이 있습니다.</span><span class="en-only">Game prizes and the lucky number draw.</span></span></li>
+    </ul>
+  </section>
+
+  <div class="rule"></div>
+
+  <section>
+    <h2><span class="ko-only">게임</span><span class="en-only">The games</span></h2>
+    <p class="lead"><span class="ko-only">제목을 누르면 규칙이 펼쳐집니다.</span><span class="en-only">Tap a title to see how it works.</span></p>
+    <ul class="games">
+      <li><details class="game" open><summary>
+          <h3><span class="ko-only">비어퐁</span><span class="en-only">Beer pong, without the beer</span></h3><span class="en-only"> min</span></span></summary>
+        <p><span class="ko-only">팀별로 컵을 쌓아둡니다. 상대 팀 컵에 탁구공을 넣으면 그 컵의 음료를 상대가 마셔야 합니다. 술 대신 호불호가 갈리는 음료가 들어갑니다.</span><span class="en-only">Each team sets up cups. Land a ping-pong ball in one and the other team drinks what's inside. No alcohol — just drinks you may or may not enjoy.</span></p>
+      </details></li>
+      <li><details class="game"><summary>
+          <h3><span class="ko-only">투호</span><span class="en-only">Tuho</span></h3><span class="en-only"> min</span></span></summary>
+        <p><span class="ko-only">떨어져 서서 화살을 항아리에 던져 넣는 전통 놀이입니다. 많이 넣을수록 좋습니다.</span><span class="en-only">A traditional game: throw arrows into a jar from a distance. The more you land, the better.</span></p>
+      </details></li>
+      <li><details class="game"><summary>
+          <h3><span class="ko-only">달고나</span><span class="en-only">Dalgona</span></h3><span class="en-only"> min</span></span></summary>
+        <p><span class="ko-only">팀이 함께 바늘로 모양을 따라 설탕 과자를 떼어냅니다. 깨지지 않게 성공하면 승리입니다.</span><span class="en-only">Work as a team to carve the shape out of the sugar candy with a needle. Break it and you're out.</span></p>
+      </details></li>
+      <li><details class="game"><summary>
+          <h3><span class="ko-only">당신은 당신의 이웃을 사랑하십니까</span><span class="en-only">Do you love your neighbor?</span> <span class="badge"><span class="ko-only">개인전</span><span class="en-only">solo</span></span></h3><span class="en-only"> min · solo</span></span></summary>
+        <p><span class="ko-only">인원보다 하나 적은 의자를 둥글게 놓고, 술래가 가운데에서 "당신은 당신의 이웃을 사랑하십니까?"라고 묻습니다. "네"라고 답하면 술래는 다른 사람에게 가서 같은 질문을 합니다. "아니요"라고 답하면 술래가 "그럼 어떤 이웃을 사랑하십니까?"라고 다시 묻고, 답하는 사람은 "○○를 입은(가진) 이웃을 사랑합니다!"라고 외칩니다. 조건에 해당하는 사람과 술래가 모두 빈자리를 향해 달려갑니다.</span><span class="en-only">Sit in a circle with one chair short. The person in the middle asks someone, "Do you love your neighbor?" If they say yes, the asker moves on to someone else. If they say no, the asker follows up with "Then which neighbors do you love?" and the answer is something like "I love neighbors wearing glasses!" Everyone who matches — and the person in the middle — races for an empty seat.</span></p>
+      </details></li>
+    </ul>
+  </section>
+
+  <div class="rule"></div>
+
+  <footer>
+    <p><span class="ko-only">행사는 한국어로 진행되며, 안내와 게임 설명은 영어로도 제공됩니다.</span><span class="en-only">The event runs in Korean, with announcements and game rules in English too.</span></p>
+    <p class="org">제28대 경영대학 학생회 <span class="behind">Be:hind</span></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var body = document.body;
+  var btnKo = document.getElementById("btn-ko");
+  var btnEn = document.getElementById("btn-en");
+  function setLang(en){
+    body.classList.toggle("en", en);
+    document.documentElement.lang = en ? "en" : "ko";
+    btnKo.setAttribute("aria-pressed", String(!en));
+    btnEn.setAttribute("aria-pressed", String(en));
+  }
+  btnKo.addEventListener("click", function(){ setLang(false); });
+  btnEn.addEventListener("click", function(){ setLang(true); });
+  if ((navigator.language || "").slice(0,2) !== "ko") setLang(true);
+})();
+</script>
+</body>
+</html>
